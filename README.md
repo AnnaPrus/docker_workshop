@@ -2,8 +2,8 @@
 
 What is covered:
 
--Introduction to Docker and containerization
--Running PostgreSQL in a Docker container
+- Introduction to Docker and containerization
+- Running PostgreSQL in a Docker container
 Data ingestion into PostgreSQL
 Working with pgAdmin for database management
 Docker networking and port mapping
