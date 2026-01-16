@@ -25,21 +25,26 @@ It focuses on Python environments, Docker, and ingesting Taxi Trips data into Po
 
 This project uses **uv** for Python dependency management.
 
-### Create / sync the environment
+## Create / sync the environment
+
 ```bash
 uv sync
+```
 
 ## Add a dependency
 
 ```bash
 uv add pandas sqlalchemy psycopg2-binary click
+```
 
 ## Run a Python script
 
 ```bash
 uv run python ingest_data_exploration.py
+```
 
 ## Run Jupyter Notebook
 
 ```bash
 uv uv run jupyter notebook
+```
