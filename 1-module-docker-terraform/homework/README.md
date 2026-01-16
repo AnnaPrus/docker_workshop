@@ -20,35 +20,6 @@ It focuses on Python environments, Docker, and ingesting Taxi Trips data into Po
 ```
 
 ---
-
-## 🐍 Python & uv
-
-This project uses **uv** for Python dependency management.
-
-## Create / sync the environment
-
-```bash
-uv sync
-```
-
-## Add a dependency
-
-```bash
-uv add pandas sqlalchemy psycopg2-binary click
-```
-
-## Run a Python script
-
-```bash
-uv run python ingest_data_exploration.py
-```
-
-## Run Jupyter Notebook
-
-```bash
-uv uv run jupyter notebook
-```
-
 ## Solution for the SQL query part:
 
 ```sql
@@ -92,3 +63,32 @@ GROUP BY z."Zone"
 ORDER BY total_revenue DESC
 LIMIT 1;
 ```
+---
+## Getting Started & Usage
+
+This project uses **uv** for Python dependency management.
+
+## Create / sync the environment
+
+```bash
+uv sync
+```
+
+## Add a dependency
+
+```bash
+uv add pandas sqlalchemy psycopg2-binary click
+```
+
+## Run a Python script
+
+```bash
+uv run python ingest_data_exploration.py
+```
+
+## Run Jupyter Notebook
+
+```bash
+uv uv run jupyter notebook
+```
+
