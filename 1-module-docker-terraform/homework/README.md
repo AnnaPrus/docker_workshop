@@ -5,16 +5,19 @@ It focuses on Python environments, Docker, and ingesting Taxi Trips data into Po
 
 ## Project Structure
 
+```text
 1-module-docker-terraform/
 └── homework/
     ├── Dockerfile
     ├── docker-compose.yaml
     ├── ingest_data_exploration.py
     ├── ingest_data_exploration.ipynb
+    ├── main.py
     ├── pyproject.toml
     ├── uv.lock
     ├── .python-version
-    └── .gitignore
+    ├── .gitignore
+
 
 ---
 
