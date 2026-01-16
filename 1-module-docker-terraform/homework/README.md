@@ -75,7 +75,6 @@ LIMIT 1;
 SELECT "PULocationID" as pick_up_id, 
  DATE(lpep_pickup_datetime) as pick_up_time, 
  SUM(trip_distance) AS total_trip_distance
- 
  FROM green_trip_data_2025
  GROUP BY pick_up_time, pick_up_id
 ```
