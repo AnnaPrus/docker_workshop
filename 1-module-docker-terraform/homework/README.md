@@ -17,7 +17,7 @@ It focuses on Python environments, Docker, and ingesting Taxi Trips data into Po
     ├── uv.lock
     ├── .python-version
     ├── .gitignore
-
+```
 
 ---
 
