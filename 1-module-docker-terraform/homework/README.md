@@ -48,3 +48,48 @@ uv run python ingest_data_exploration.py
 ```bash
 uv uv run jupyter notebook
 ```
+
+## Solution for the SQL query part:
+
+```sql
+SELECT COUNT(*)
+FROM green_trip_data_2025
+WHERE lpep_pickup_datetime >= '2025-11-01'
+  AND lpep_pickup_datetime < '2025-12-01'
+  AND trip_distance <= 1;
+```
+
+```sql
+SELECT
+    DATE(lpep_pickup_datetime) as pick_up_time,
+    SUM(trip_distance) AS total_trip_distance
+FROM green_trip_data_2025
+WHERE trip_distance < 100
+GROUP BY pick_up_time
+ORDER BY total_trip_distance DESC
+LIMIT 1;
+```
+
+
+```sql
+SELECT "PULocationID" as pick_up_id, 
+ DATE(lpep_pickup_datetime) as pick_up_time, 
+ SUM(trip_distance) AS total_trip_distance
+ 
+ FROM green_trip_data_2025
+ GROUP BY pick_up_time, pick_up_id
+```
+
+
+```sql
+SELECT
+    z."Zone" AS pickup_zone,
+    SUM(t.total_amount) AS total_revenue
+FROM green_trip_data_2025 t
+JOIN taxi_zone_lookup z
+  ON t."PULocationID" = z."LocationID"
+WHERE DATE(t.lpep_pickup_datetime) = '2025-11-18'
+GROUP BY z."Zone"
+ORDER BY total_revenue DESC
+LIMIT 1;
+```
