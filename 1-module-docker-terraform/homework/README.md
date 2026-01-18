@@ -97,3 +97,37 @@ uv run python ingest_data_exploration.py
 
 ```bash
 uv uv run jupyter notebook
+```
+## Start two containers in the same docker network to ingest the data into Postgre:
+
+```bash
+#Create a network
+docker network create pg-network
+
+
+# Run PostgreSQL on the network
+docker run -it \
+  -e POSTGRES_USER="root" \
+  -e POSTGRES_PASSWORD="root" \
+  -e POSTGRES_DB="trip_data" \
+  -v trip_data_postgres_data:/var/lib/postgresql \
+  -p 5432:5432 \
+  --network=pg-network \
+  --name pgdatabase \
+  postgres:18
+
+# Build a docker image
+docker build -t zoomcamp-ingest .
+
+# In another terminal, run Image on the same network
+docker run -it \
+  --network=pg-network \
+  zoomcamp-ingest \
+    --pg-user=root \
+    --pg-pass=root \
+    --pg-host=pgdatabase \
+    --pg-port=5432 \
+    --pg-db=trip_data \
+    --table-trips=green_trip_data_2025 \
+     --table-zones=taxi_zone_lookup \
+```
