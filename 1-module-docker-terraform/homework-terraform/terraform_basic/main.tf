@@ -3,7 +3,7 @@ terraform {
   required_providers {
     google = {
       source  = "hashicorp/google"
-      version = "4.51.0"
+      version = "7.16.0"
     }
   }
 }
@@ -11,14 +11,14 @@ terraform {
 provider "google" {
 # Credentials only needs to be set if you do not have the GOOGLE_APPLICATION_CREDENTIALS set
 #  credentials = 
-  project = "<Your Project ID>"
+  project = "project_112233"
   region  = "us-central1"
 }
 
 
 
 resource "google_storage_bucket" "data-lake-bucket" {
-  name          = "<Your Unique Bucket Name>"
+  name          = "project_112233_bucket_terraform"
   location      = "US"
 
   # Optional, but recommended settings:
@@ -43,7 +43,7 @@ resource "google_storage_bucket" "data-lake-bucket" {
 
 
 resource "google_bigquery_dataset" "dataset" {
-  dataset_id = "<The Dataset Name You Want to Use>"
-  project    = "<Your Project ID>"
+  dataset_id = "project_112233_dataset"
+  project    = "112233"
   location   = "US"
 }
