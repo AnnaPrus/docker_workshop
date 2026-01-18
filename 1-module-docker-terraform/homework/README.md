@@ -97,29 +97,3 @@ uv run python ingest_data_exploration.py
 
 ```bash
 uv uv run jupyter notebook
-```
-## Run a containerized version of Postgres that doesn't require any installation steps
-
-```bash
-mkdir trip_data_postgres_data
-
-docker run -it --rm \
-  -e POSTGRES_USER="root" \
-  -e POSTGRES_PASSWORD="root" \
-  -e POSTGRES_DB="ny_taxi" \
-  -v trip_data_postgres_data:/var/lib/postgresql \
-  -p 5432:5432 \
-  postgres:18
-```
-
-## Install pgcli
-
-```bash
-uv add --dev pgcli
-```
-
-## Use it to connect to Postgres:
-
-```bash
-uv run pgcli -h localhost -p 5432 -u root -d trip_data
-```
